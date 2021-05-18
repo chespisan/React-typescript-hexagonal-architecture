@@ -1,15 +1,15 @@
-import { ProductPort } from '../../application/port/product.port'
-import { Product } from '../../domain/entities/product.entity'
-import { ProductRepository } from '../repositories/product.repository'
+import { ProductRepository } from '../../domain/repositories/product/product.repository'
+import { Product } from '../../domain/entities/product/product.entity'
+import { ProductService } from '../services/product/product.service'
 
-export class ProductAdapter implements ProductPort {
-  private productRepository: ProductRepository
+export class ProductAdapter implements ProductRepository {
+  private productService: ProductService
 
   constructor() {
-    this.productRepository = new ProductRepository()
+    this.productService = new ProductService()
   }
 
   async getProducts(): Promise<Product[]> {
-    return await this.productRepository.getProducts()
+    return await this.productService.getProducts()
   }
 }

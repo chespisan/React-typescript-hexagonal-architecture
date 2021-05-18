@@ -1,9 +1,9 @@
-import { BasketPort } from '../../application/port/basket.port'
-import { Basket } from '../../domain/entities/basket.entity'
-import { Product } from '../../domain/entities/product.entity'
+import { BasketRepository } from '../../domain/repositories/basket/basket.repository'
+import { Basket } from '../../domain/entities/basket/basket.entity'
+import { Product } from '../../domain/entities/product/product.entity'
 import { UuidService } from '../utils/uuid/uuid'
 
-export class BasketAdapter implements BasketPort {
+export class BasketAdapter implements BasketRepository {
   private uuidService: UuidService
 
   constructor() {

@@ -1,8 +1,8 @@
-import { Product } from '../../domain/entities/product.entity'
-import { ProductDTO } from '../http/dto/ProductDTO'
-import { HttpService } from '../http/http'
+import { Product } from '../../../domain/entities/product/product.entity'
+import { ProductDTO } from '../../http/dto/ProductDTO'
+import { HttpService } from '../../http/http'
 
-export class ProductRepository {
+export class ProductService {
   private httpService: HttpService
 
   constructor() {

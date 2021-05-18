@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Product } from '../../../../domain/entities/product.entity'
-import { ProductUseCase } from '../../../../application/use-cases/productUseCase'
+import { Product } from '../../../../domain/entities/product/product.entity'
+import { ProductUseCase } from '../../../../application/use-cases/product/productUseCase'
 import { ProductAdapter } from '../../../adapter/product.adapter'
 import { ProductListProps } from '../../interfaces/productList.interface'
 
