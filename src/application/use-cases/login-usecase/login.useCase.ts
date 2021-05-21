@@ -1,6 +1,6 @@
-import { LoginInterface } from '../../../domain/entities/login/login.entity'
-import { User } from '../../../domain/entities/user/user.entity'
-import { LoginRepository } from '../../../domain/repositories/login/login.repository'
+import { User } from 'domain/entities/user/user.entity'
+import { LoginInterface } from 'domain/entities/login/login.entity'
+import { LoginRepository } from 'domain/repositories/login/login.repository'
 
 export class LoginUseCase {
   constructor(private readonly loginRepository: LoginRepository) {}

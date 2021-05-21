@@ -1,6 +1,6 @@
-import { Basket } from '../../../domain/entities/basket/basket.entity'
-import { Product } from '../../../domain/entities/product/product.entity'
-import { BasketRepository } from '../../../domain/repositories/basket/basket.repository'
+import { Basket } from "domain/entities/basket/basket.entity"
+import { Product } from "domain/entities/product/product.entity"
+import { BasketRepository } from "domain/repositories/basket/basket.repository"
 
 export class BasketUseCase {
   constructor(private readonly basketPort: BasketRepository) {}

@@ -1,15 +1,12 @@
-import { LoginInterface } from '../../../domain/entities/login/login.entity'
-import { User } from '../../../domain/entities/user/user.entity'
-import { HttpService } from '../../http/http'
+import { User } from 'domain/entities/user/user.entity'
+import { LoginInterface } from 'domain/entities/login/login.entity'
+import { LoginRepository } from 'domain/repositories/login/login.repository'
+import { HttpRepository } from 'infrastructure/repositories/http/http.repository'
 
-export class LoginService {
-  private readonly httpService: HttpService
-  constructor() {
-    this.httpService = new HttpService()
-  }
+export class LoginService implements LoginRepository {
+  constructor(private readonly httpService: HttpRepository) {}
 
-  login(userLogin: LoginInterface): Promise<User> {
-    // fake api
+  async login(userLogin: LoginInterface): Promise<User> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         let response: User = {

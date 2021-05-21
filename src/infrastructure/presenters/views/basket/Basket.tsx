@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
-import { BasketUseCase } from '../../../../application/use-cases/basket/basket.useCase'
-import { Basket } from '../../../../domain/entities/basket/basket.entity'
-import { Product } from '../../../../domain/entities/product/product.entity'
-import { BasketAdapter } from '../../../adapter/basket.adapter'
-import ProductList from '../../components/product-list/ProductList'
-import { appProps } from '../../interfaces/app.interface'
+import { BasketUseCase } from 'application/use-cases/basket/basket.useCase'
+import { Product } from 'domain/entities/product/product.entity'
+import { Basket } from 'domain/entities/basket/basket.entity'
+import ProductList from 'infrastructure/presenters/components/product-list/ProductList'
+import { appProps } from 'infrastructure/presenters/interfaces/app.interface'
+import { BasketService } from 'infrastructure/services/basket.service'
 
 const Basket: React.FC<appProps> = ({ msg }) => {
   const [basket, setBasket] = useState<Basket | null>(null)
-  const basketAdapter: BasketAdapter = new BasketAdapter()
+  const basketService: BasketService = new BasketService()
 
   const addToCart = (product: Product) => {
-    const basketUseCase = new BasketUseCase(basketAdapter)
+    const basketUseCase = new BasketUseCase(basketService)
     setBasket(basketUseCase.addProductToBasket(product, basket))
   }
 

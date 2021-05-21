@@ -1,6 +1,7 @@
 import axios from 'axios'
+import { HttpRepository } from 'infrastructure/repositories/http/http.repository'
 
-export class HttpService {
+export class AxiosService implements HttpRepository {
   async get<T>(url: string) {
     return (await axios.get(url)) as T
   }

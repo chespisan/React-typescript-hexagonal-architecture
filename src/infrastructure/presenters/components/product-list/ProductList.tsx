@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { Product } from '../../../../domain/entities/product/product.entity'
-import { ProductUseCase } from '../../../../application/use-cases/product/productUseCase'
-import { ProductAdapter } from '../../../adapter/product.adapter'
-import { ProductListProps } from '../../interfaces/productList.interface'
+import { Product } from 'domain/entities/product/product.entity'
+import { ProductUseCase } from 'application/use-cases/product/productUseCase'
+import { ProductListProps } from 'infrastructure/presenters/interfaces/productList.interface'
+import { ProductService } from 'infrastructure/services/product.service'
+import { AxiosService } from 'infrastructure/http/axiosHttp'
 
 const ProductList: React.FC<ProductListProps> = ({ onSelectProduct }) => {
   const [products, setProducts] = useState<Product[]>([])
-  let productAdapter = new ProductAdapter()
+  let productAdapter = new ProductService(new AxiosService())
 
   const productUseCase = async () => {
     let productUseCase = new ProductUseCase(productAdapter)

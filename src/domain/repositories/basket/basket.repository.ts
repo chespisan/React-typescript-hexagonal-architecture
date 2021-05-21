@@ -1,5 +1,5 @@
-import { Basket } from '../../entities/basket/basket.entity'
-import { Product } from '../../entities/product/product.entity'
+import { Basket } from "domain/entities/basket/basket.entity";
+import { Product } from "domain/entities/product/product.entity";
 
 export interface BasketRepository {
   hasProduct(basket: Basket, product: Product): Product | undefined
